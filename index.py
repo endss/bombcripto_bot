@@ -248,7 +248,7 @@ def isWorking(bar, buttons):
 
 def clickGreenBarButtons():
     # ele clicka nos q tao trabaiano mas axo q n importa
-    offset = 140
+    offset = 160
 
     green_bars = positions(images['green-bar'], threshold=ct['green_bar'])
     logger('🟩 %d green bars detected' % len(green_bars))
@@ -268,7 +268,7 @@ def clickGreenBarButtons():
     hero_clicks_cnt = 0
     for (x, y, w, h) in not_working_green_bars:
         # isWorking(y, buttons)
-        moveToWithRandomness(x+offset+(w/2),y+(h/2),1)
+        moveToWithRandomness(x+offset+(w/1),y+(h/1),1)
         pyautogui.click()
         global hero_clicks
         hero_clicks = hero_clicks + 1
@@ -498,13 +498,13 @@ def main():
     while True:
         now = time.time()
         
-        if now - last["login"] > addRandomness(t['check_for_login'] * 60):
-            sys.stdout.flush()
-            last["login"] = now
-            login()
+        # if now - last["login"] > addRandomness(t['check_for_login'] * 60):
+        #     sys.stdout.flush()
+        #     last["login"] = now
+        #     login()
 
-        if now - last["check_for_captcha"] > addRandomness(t['check_for_captcha'] * 60):
-            last["check_for_captcha"] = now
+        # if now - last["check_for_captcha"] > addRandomness(t['check_for_captcha'] * 60):
+        #     last["check_for_captcha"] = now
 
         if now - last["heroes"] > addRandomness(t['send_heroes_for_work'] * 60):
             last["heroes"] = now
