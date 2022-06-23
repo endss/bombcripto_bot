@@ -198,7 +198,7 @@ def positions(target, threshold=ct['default'],img = None):
 
 def scroll():
 
-    commoms = positions(images['commom-text'], threshold = ct['commom'])
+    commoms = positions(images['super-rare-text'], threshold = ct['commom'])
     if (len(commoms) == 0):
         return
     x,y,w,h = commoms[len(commoms)-1]
@@ -498,13 +498,13 @@ def main():
     while True:
         now = time.time()
         
-        if now - last["login"] > addRandomness(t['check_for_login'] * 60):
-            sys.stdout.flush()
-            last["login"] = now
-            login()
+        # if now - last["login"] > addRandomness(t['check_for_login'] * 60):
+        #     sys.stdout.flush()
+        #     last["login"] = now
+        #     login()
 
-        if now - last["check_for_captcha"] > addRandomness(t['check_for_captcha'] * 60):
-            last["check_for_captcha"] = now
+        # if now - last["check_for_captcha"] > addRandomness(t['check_for_captcha'] * 60):
+        #     last["check_for_captcha"] = now
 
         if now - last["heroes"] > addRandomness(t['send_heroes_for_work'] * 60):
             last["heroes"] = now
